@@ -15,15 +15,15 @@ public class RegisterRequest {
 
     private String username;
 
-    private String password;
+    private String pass;
 
     private String email;
 
-    private String name;
+    private String nombre;
 
-    private String surname;
+    private String apellidos;
 
-    private String phone;
+    private String telefono;
 
-    private Date birthDate;
+    private Date fechaNac;
 }
