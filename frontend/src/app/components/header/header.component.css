@@ -1,0 +1,69 @@
+:host {
+    display: block;
+    grid-area: header;
+    width: auto;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Establece un valor alto para asegurarte de que esté por encima */
+  }
+
+  
+/* 
+  .barrita {
+    background-image: url(../../images/images.jpeg);
+    background-size: cover;
+
+  }
+   */
+
+
+   .custom-btn {
+    border-color: yellow; /* Color de borde predeterminado */
+    color: yellow; /* Color de texto predeterminado */
+  }
+  
+  .custom-btn:hover {  
+    background-color:  yellow; /* Cambiar color de fondo al hacer hover */
+    color: black;
+  }
+  
+  .neons {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    -webkit-animation: glow 2s ease-in-out infinite alternate;
+    -moz-animation: glow 2s ease-in-out infinite alternate;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes glow {
+    from {
+      color: #fff;
+      text-shadow: 
+        0 0 10px yellow, 
+        0 0 20px yellow, 
+        0 0 30px yellow, 
+        0 0 40px yellow, 
+        0 0 50px yellow, 
+        0 0 60px yellow, 
+        0 0 70px yellow, 
+        0 0 90px yellow;
+    }
+    to {
+      color: gray;
+      text-shadow: 
+        0 0 20px yellow, 
+        0 0 30px yellow, 
+        0 0 40px yellow, 
+        0 0 50px yellow, 
+        0 0 60px yellow, 
+        0 0 70px yellow, 
+        0 0 80px yellow, 
+        0 1 90px yellow;
+    }
+  }
+
+  .login {
+    height: 5vh;
+    
+}

@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg" style="background-color: purple;">
+  <div class="container-fluid d-flex justify-content-between align-items-center px-5">
+    <div class="d-flex align-items-center">
+      <img src="../../../assets/images/logomaiztransparente.ico" alt="" width="65" height="65" style="max-width: 65px; max-height: 65px;">
+      <a class="navbar-brand mx-4 neons" href="#">ELECTRIC HALEN</a>
+      <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse d-flex justify-content-between align-items-center" id="navbarSupportedContent">
+      <form class="d-flex flex-grow-1 me-3" role="search" (submit)="buscar($event)">
+        <input class="form-control me-2 flex-grow-1" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="terminoBusqueda" [ngModelOptions]="{standalone: true}" name="search">
+        <button class="btn btn-outline-success custom-btn" type="submit">Search</button>
+      </form>
+      <div class="dropdown ms-auto">
+        <a href="/login"><img src="../../../assets/images/loginbien-Photoroom.png-Photoroom.png" alt="login" class="login"></a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+          <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
