@@ -41,4 +41,8 @@ public class InstrumentosServiceImpl implements InstrumentosService {
     public Instrumentos editInstrumentos(Instrumentos instrumentos) {
         return daoInstrumentos.save(instrumentos);
     }
+
+    public List<Instrumentos> findByTipoInstrumentoId(Long tipoInstrumentoId) {
+        return daoInstrumentos.findByTipoInstrumentoId(tipoInstrumentoId);
+    }
 }

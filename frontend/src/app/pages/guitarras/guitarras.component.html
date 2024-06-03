@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <h2>Guitarras</h2>
+      </div>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+      <!-- Repetir este bloque para cada guitarra -->
+      <div class="col" *ngFor="let guitarra of guitarras">
+        <div class="card h-100">
+          <img [src]="guitarra.imagen" class="card-img-top" alt="{{ guitarra.nombre }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ guitarra.nombre }}</h5>
+            <p class="card-text">{{ guitarra.descripcion }}</p>
+            <p class="card-text"><strong>{{ guitarra.precio }}</strong></p>
+          </div>
+        </div>
+      </div>
+      <!-- Fin del bloque de guitarra -->
+    </div>
+  </div>
+  

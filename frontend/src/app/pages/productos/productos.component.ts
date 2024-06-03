@@ -1,23 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
 })
 export class ProductosComponent implements OnInit {
-  productos = [
-    { name: 'Producto 1', description: 'Descripción del producto 1', price: 100, image: 'path/to/image1.jpg' },
-    { name: 'Producto 2', description: 'Descripción del producto 2', price: 200, image: 'path/to/image2.jpg' },
-    { name: 'Producto 3', description: 'Descripción del producto 3', price: 300, image: 'path/to/image3.jpg' }
-  ];
+  productos: any[] = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http.get<any[]>('http://localhost:8080/instrumentos').subscribe(data => {
+      // Transforma las rutas de las imágenes para que sean accesibles desde el navegador
+      this.productos = data.map(producto => {
+        return {
+          ...producto,
+          imagen: producto.imagen.replace('C:\\JULIOdocs\\DAW2º\\TFG-Julio\\backend\\myapp\\src\\assets\\images', '/assets/images')
+        };
+      });
+    });
   }
 }

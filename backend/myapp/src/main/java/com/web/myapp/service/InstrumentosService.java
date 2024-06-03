@@ -9,4 +9,5 @@ public interface InstrumentosService {
     Boolean deleteInstrumentos(Long instrumentoId);
     Instrumentos addInstrumentos(Instrumentos instrumentos);
     Instrumentos editInstrumentos(Instrumentos instrumentos);
+    List<Instrumentos> findByTipoInstrumentoId(Long tipoInstrumentoId);
 }

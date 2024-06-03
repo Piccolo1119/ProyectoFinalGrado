@@ -1,0 +1,21 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <h2>Bajos</h2>
+      </div>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+      <!-- Repetir este bloque para cada bajo -->
+      <div class="col" *ngFor="let bajo of bajos">
+        <div class="card h-100">
+          <img [src]="bajo.imagen" class="card-img-top" alt="{{ bajo.nombre }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ bajo.nombre }}</h5>
+            <p class="card-text">{{ bajo.descripcion }}</p>
+            <p class="card-text"><strong>{{ bajo.precio }}</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
