@@ -7,9 +7,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  standalone : true,
+  standalone: true,
   imports: [FormsModule, CommonModule],
-
 })
 export class HeaderComponent {
   terminoBusqueda: string = '';
@@ -39,20 +38,22 @@ export class HeaderComponent {
         break;
       case 'poke':
         this.router.navigate(['/poke'], { fragment: 'poke' });
-      break;
+        break;
       case 'clima':
         this.router.navigate(['/clima'], { fragment: 'clima' });
-      break;
+        break;
       case 'chuck':
         this.router.navigate(['/chuck'], { fragment: 'chuck' });
-      break;
+        break;
       case 'nasa':
         this.router.navigate(['/nasa'], { fragment: 'nasa' });
-      break;
+        break;
       case 'teatro':
         this.router.navigate(['/teatro'], { fragment: 'teatro' });
-      break;
-      
+        break;
+      case 'productos':
+        this.router.navigate(['/productos'], { fragment: 'productos' });
+        break;
       default:
         // Redirige a una página de búsqueda no encontrada o realiza alguna acción alternativa
         break;
