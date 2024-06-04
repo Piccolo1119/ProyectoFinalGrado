@@ -11,6 +11,7 @@ body  {
     "content"
     "footer";
   grid-template-columns: 1fr;
+  font-family: ubuntu;
 }
   
 /* Estilos para el contenido */
