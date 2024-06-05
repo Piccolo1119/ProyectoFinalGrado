@@ -1,7 +1,16 @@
 package com.web.myapp.mapper.impl;
 
-import java.sql.Date;
+import java.util.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UsuariosDto {
 
     private Long id;
@@ -20,7 +29,7 @@ public class UsuariosDto {
 
     private Date fechaNac;
 
-
+/* 
     public Long getId() {
         return id;
     }
@@ -83,5 +92,5 @@ public class UsuariosDto {
 
     public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
-    }
+    } */
 }
