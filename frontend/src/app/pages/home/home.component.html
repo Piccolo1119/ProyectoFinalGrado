@@ -2,7 +2,7 @@
   <!-- Carousel Row -->
   <div class="row mb-4">
     <div class="col-12 mt-4">
-      <div id="carouselExampleCaptions" class="carousel slide carrusel" data-bs-ride="carousel">
+      <div id="carouselExampleCaptions" class="carousel slide carrusel" data-bs-ride="carousel" data-bs-interval="4000">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img src="../../../assets/images/ramones.jpg" class="d-block w-100" alt="...">
+            <img src="../../../assets/images/george-harrison.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption custom-caption custom-caption-top">
               <h5>¡Visita nuestra tienda!</h5>
             </div>
@@ -42,6 +42,24 @@
     </div>
   </div>
 
+  <div class="row mb-4">
+    <h2>Productos más populares</h2><br>
+  </div>
+  <!-- Popular Products Row -->
+  <div class="row mb-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+    <!-- Repetir este bloque para cada producto -->
+    <div class="col" *ngFor="let producto of productos">
+      <div class="card h-100">
+        <img [src]="producto.imagen" class="card-img-top h-50" alt="{{ producto.nombre }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ producto.nombre }}</h5>
+          <p class="card-text"><strong>Marca:</strong> {{ producto.marca }}</p>
+          <p class="card-text">{{ producto.descripcion }}</p>
+          <p class="card-text"><strong>{{ producto.precio | currency }}</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Relevant Text Row -->
   <div class="row mb-4">
     <div class="col-12">
@@ -63,23 +81,4 @@
     </div>
   </div>
 
-  <!-- Popular Products Row -->
-  <div class="row mb-4">
-    <div class="col-12">
-      <h2>Popular Products</h2>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-        <!-- Replace the below static content with dynamic product content as needed -->
-        <div class="col" *ngFor="let producto of productos">
-          <div class="card h-100">
-            <img [src]="producto.imagen" class="card-img-top" alt="{{ producto.nombre }}">
-            <div class="card-body">
-              <h5 class="card-title">{{ producto.nombre }}</h5>
-              <p class="card-text">{{ producto.descripcion }}</p>
-              <p class="card-text"><strong>{{ producto.precio }}</strong></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
