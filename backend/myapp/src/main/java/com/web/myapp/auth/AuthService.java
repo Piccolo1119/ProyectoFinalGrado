@@ -42,7 +42,7 @@ public class AuthService {
             .apellidos(request.getApellidos())
             .telefono(request.getTelefono())
             .fechaNac(request.getFechaNac())
-            .rol(Rol.COMPRADOR)
+            .rol(Rol.USER)
             .build();
 
         usuariosrepository.save(usuarios);
