@@ -18,7 +18,7 @@ public class UsuariosService {
     private final UsuariosRepository usuariosRepository; 
 
     @Transactional
-    public UsuariosResponse updateUser(UsuariosRequest usuariosRequest) {
+    public UsuariosResponse updateUsuarios(UsuariosRequest usuariosRequest) {
        
         Usuarios usuarios = Usuarios.builder()
         .id(usuariosRequest.getId())
@@ -37,7 +37,7 @@ public class UsuariosService {
         return new UsuariosResponse("El usuario se registró satisfactoriamente");
     }
 
-    public UsuariosDto getUsuarios(Integer id) {
+    public UsuariosDto getUsuarios(Long id) {
         Usuarios usuarios= usuariosRepository.findById(id).orElse(null);
        
         if (usuarios!=null)

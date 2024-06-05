@@ -19,4 +19,6 @@ public interface UsuariosRepository extends JpaRepository<Usuarios, Integer> {
     @Query("Update Usuarios u set u.username=:username, u.email=:email, u.pass=:pass, u.nombre=:nombre, u.apellidos=:apellidos, u.telefono=:telefono, u.fechaNac=:fechaNac where u.id=:id")
     void updateUsuarios(@Param(value = "id") Long id, @Param(value = "username") String username, @Param(value = "email") String email, @Param(value = "pass") String pass, @Param(value = "nombre") String nombre, @Param(value = "apellidos") String apellidos, @Param(value = "telefono") String telefono, @Param(value = "fechaNac") Date fechaNac);
 
+    Optional<Usuarios> findById(Long id);
+
 }
