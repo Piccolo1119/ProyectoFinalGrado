@@ -13,21 +13,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UsuariosDto {
 
-    private Long id;
+    Long id;
 
-    private String nombre;
+    String nombre;
 
-    private String apellidos;
+    String apellidos;
 
-    private String email;
+    String email;
 
-    private String username;
+    String username;
 
-    private String pass;
+    String telefono;
 
-    private String telefono;
-
-    private Date fechaNac;
+    Date fechaNac;
 
 /* 
     public Long getId() {

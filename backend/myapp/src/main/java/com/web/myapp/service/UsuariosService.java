@@ -21,39 +21,36 @@ public class UsuariosService {
     public UsuariosResponse updateUsuarios(UsuariosRequest usuariosRequest) {
        
         Usuarios usuarios = Usuarios.builder()
-        .id(usuariosRequest.getId())
+        .id(usuariosRequest.id)
         .nombre(usuariosRequest.getNombre())
         .apellidos(usuariosRequest.getApellidos())
         .email(usuariosRequest.getEmail())
         .username(usuariosRequest.getUsername())
-        .pass(usuariosRequest.getPass())
         .telefono(usuariosRequest.getTelefono())
         .fechaNac(usuariosRequest.getFechaNac())
         .rol(Rol.USER)
         .build();
         
-        usuariosRepository.updateUsuarios(usuarios.getId(), usuarios.getNombre(), usuarios.getApellidos(), usuarios.getEmail(), usuarios.getUsername(), usuarios.getPass(), usuarios.getTelefono(), usuarios.getFechaNac());
+        usuariosRepository.updateUsuarios(usuarios.getId(), usuarios.getNombre(), usuarios.getApellidos(), usuarios.getEmail(), usuarios.getUsername(), usuarios.getTelefono(), usuarios.getFechaNac());
 
         return new UsuariosResponse("El usuario se registró satisfactoriamente");
     }
 
     public UsuariosDto getUsuarios(Long id) {
-        Usuarios usuarios= usuariosRepository.findById(id).orElse(null);
-       
-        if (usuarios!=null)
-        {
-            UsuariosDto usuariosDto = UsuariosDto.builder()
-            .id(usuarios.getId())
-            .nombre(usuarios.getNombre())
-            .apellidos(usuarios.getApellidos())
-            .email(usuarios.getEmail())
-            .username(usuarios.getUsername())
-            .pass(usuarios.getPass())
-            .telefono(usuarios.getTelefono())
-            .fechaNac(usuarios.getFechaNac())
-            .build();
-            return usuariosDto;
+        Usuarios usuarios = usuariosRepository.findById(id).orElse(null);
+        
+        if (usuarios != null) {
+            return UsuariosDto.builder()
+                    .id(usuarios.getId())
+                    .nombre(usuarios.getNombre())
+                    .apellidos(usuarios.getApellidos())
+                    .email(usuarios.getEmail())
+                    .username(usuarios.getUsername())
+                    .telefono(usuarios.getTelefono())
+                    .fechaNac(usuarios.getFechaNac())
+                    .build();
         }
+        
         return null;
     }
 }

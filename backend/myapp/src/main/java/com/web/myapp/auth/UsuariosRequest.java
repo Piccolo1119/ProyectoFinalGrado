@@ -12,12 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UsuariosRequest {
-    Long id;
+    public Long id;
     String nombre;
     String apellidos;
     String email;
     String username;
-    String pass;
     String telefono;
     Date fechaNac;
 }

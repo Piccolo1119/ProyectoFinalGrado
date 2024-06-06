@@ -3,10 +3,10 @@ package com.web.myapp.auth;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.web.myapp.ExceptionHandler.UserAlreadyExistsException;
 import com.web.myapp.jwt.JwtService;
 import com.web.myapp.model.Rol;
 import com.web.myapp.model.Usuarios;
@@ -33,13 +33,17 @@ public class AuthService {
     }
 
     public AuthResponse register(RegisterRequest request) {
-        
+        // Check if user already exists
+        if (usuariosrepository.findByUsername(request.getUsername()).isPresent() || usuariosrepository.findByEmail(request.getEmail()).isPresent()) {
+            throw new UserAlreadyExistsException("Username or email already registered");
+        }
+
         Usuarios usuarios = Usuarios.builder()
-            .username(request.getUsername())
-            .pass(passwordEncoder.encode(request.getPass()))
-            .email(request.getEmail())
             .nombre(request.getNombre())
             .apellidos(request.getApellidos())
+            .email(request.getEmail())
+            .username(request.getUsername())
+            .pass(passwordEncoder.encode(request.getPass()))
             .telefono(request.getTelefono())
             .fechaNac(request.getFechaNac())
             .rol(Rol.USER)

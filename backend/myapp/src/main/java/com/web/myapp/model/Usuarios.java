@@ -29,41 +29,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "usuarios", uniqueConstraints = {
-    @UniqueConstraint(columnNames = { "username" })
-})
+@Table(name="usuarios", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
 public class Usuarios implements UserDetails {
 
     @Id
     @GeneratedValue(generator = "increment", strategy = GenerationType.IDENTITY)
     @GenericGenerator(name="increment", strategy = "increment")
     @Column(name = "id", unique = true, nullable = false)
-    private Long id;
+    Long id;
 
     @Column(name = "nombre", length = 100)
-    private String nombre;
+    String nombre;
 
     @Column(name = "apellidos", length = 100 )
-    private String apellidos;
+    String apellidos;
 
     @Column(name = "email", length = 255)
-    private String email;
+    String email;
 
     @Column(name = "username", length = 255, nullable = false)
-    private String username;
+    String username;
 
     @Column(name = "pass", length = 255)
-    private String pass;
+    String pass;
 
     @Column(name = "telefono")
-    private String telefono;
+    String telefono;
 
     @Column(name = "fecha_nacimiento")
-    private Date fechaNac;
+    Date fechaNac;
 
     @Column(name = "rol", length = 50)
     @Enumerated(EnumType.STRING)
-    private Rol rol;
+    Rol rol;
 
 
     @Override
