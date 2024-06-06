@@ -11,7 +11,7 @@ import { LoginService } from '../../services/auth/login.service';
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
-export class NavComponent implements OnInit, OnDestroy {
+export class NavComponent implements OnInit {
 
   userLoginOn:boolean=false;
 

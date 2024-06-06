@@ -1,7 +1,9 @@
 export interface User {
     id:number;
-    name?:string;
-    lastName?:string;
-    email:string;
-    message?:string;
+    nombre?:string;
+    apellidos?:string;
+    email?:string;
+    username:string;
+    telefono?:string;
+    fechaNac?:Date;
 }
