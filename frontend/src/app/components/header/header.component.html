@@ -9,33 +9,47 @@
       </button>
     </div>
     <div class="col-8 d-flex justify-content-between align-items-center" id="navbarSupportedContent">
-      <form class="d-flex flex-grow-1 me-3" role="search" (submit)="buscar($event)">
-        <input class="form-control me-2 flex-grow-1" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="terminoBusqueda" [ngModelOptions]="{standalone: true}" name="search">
+      <form class="d-flex flex-grow-1 me-3" role="search" (submit)="buscar()">
+        <input class="form-control me-2 flex-grow-1" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="terminoBusqueda" [ngModelOptions]="{standalone: true}" name="search" (input)="buscar()">
         <button class="btn btn-outline-success custom-btn" type="submit">Search</button>
       </form>
     </div>
     <div class="col-1 d-flex align-items-center">
       <a href="/profile">Login</a>
-      <!-- <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-        <li><a class="dropdown-item" href="/profile">Perfil</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
-      </ul> -->
     </div>
   </div>
-  <div class="row justify-content-center align-items-center gy-2 p-1" style="background-color: #f5f5f7; border-top: 1px solid black;">
-    <ul class="nav">
-      <li class="nav-item dropdown">
-        <a class="nav-link box dropdown-toggle" id="productosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
-        <ul class="dropdown-menu" aria-labelledby="productosDropdown">
-          <li><a class="dropdown-item" href="/productos">Todos los productos</a></li>
-          <li><a class="dropdown-item" href="/guitarras">Guitarras</a></li>
-          <li><a class="dropdown-item" href="/bajos">Bajos</a></li>
+  <div class="row">
+    <div class="col-9">
+      <div class="row justify-content-center align-items-center gy-2 p-1" style="background-color: #f5f5f7; border-top: 1px solid black;">
+        <ul class="nav">
+          <li *ngFor="let instrumento of resultadosBusqueda" class="nav-item col-12">
+            <div class="d-flex align-items-center">
+              <img [src]="instrumento.imagen" alt="{{ instrumento.nombre }}" width="50" height="50">
+              <span>{{ instrumento.nombre }}</span>
+            </div>
+          </li>
         </ul>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link box" href="form.html">Contacto</a>
-      </li>
-    </ul>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="row justify-content-center align-items-center gy-2 p-1" style="background-color: #f5f5f7; border-top: 1px solid black;">
+        <ul class="nav">
+          <li class="nav-item col-12">
+            <a class="nav-link box dropdown-toggle" id="productosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+            <ul class="dropdown-menu" aria-labelledby="productosDropdown">
+              <li><a class="dropdown-item" href="/productos">Todos los productos</a></li>
+              <li><a class="dropdown-item" href="/guitarras">Guitarras</a></li>
+              <li><a class="dropdown-item" href="/bajos">Bajos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item col-12">
+            <a class="nav-link box" href="form.html">Contacto</a>
+          </li>
+          <li class="nav-item col-12">
+            <a class="nav-link box" href="/publicar">Publicar</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

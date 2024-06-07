@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { InstrumentosService } from '../../services/instrumentos/instrumentos.service';
 
 @Component({
   selector: 'app-header',
@@ -12,51 +13,19 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   terminoBusqueda: string = '';
+  resultadosBusqueda: any[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private instrumentosService: InstrumentosService) { }
 
-  buscar(event: Event) {
-    event.preventDefault();
-
-    // Reemplaza espacios y convierte a minúsculas para comparación
-    const terminoNormalizado = this.terminoBusqueda.toLowerCase().trim();
-
-    // Definimos la lógica para buscar y navegar al elemento del sidebar
-    // que coincida con el término de búsqueda
-    switch (terminoNormalizado) {
-      case 'adivinanza':
-        this.router.navigate(['/juego'], { fragment: 'adivinanza' });
-        break;
-      case 'calculadora':
-        this.router.navigate(['/calculadora'], { fragment: 'calculadora' });
-        break;
-      case 'pantalla':
-        this.router.navigate(['/pantalla'], { fragment: 'pantalla' });
-        break;
-      case 'navegador':
-        this.router.navigate(['/navegador'], { fragment: 'navegador' });
-        break;
-      case 'poke':
-        this.router.navigate(['/poke'], { fragment: 'poke' });
-        break;
-      case 'clima':
-        this.router.navigate(['/clima'], { fragment: 'clima' });
-        break;
-      case 'chuck':
-        this.router.navigate(['/chuck'], { fragment: 'chuck' });
-        break;
-      case 'nasa':
-        this.router.navigate(['/nasa'], { fragment: 'nasa' });
-        break;
-      case 'teatro':
-        this.router.navigate(['/teatro'], { fragment: 'teatro' });
-        break;
-      case 'productos':
-        this.router.navigate(['/productos'], { fragment: 'productos' });
-        break;
-      default:
-        // Redirige a una página de búsqueda no encontrada o realiza alguna acción alternativa
-        break;
+  buscar() {
+    if (this.terminoBusqueda.trim() !== '') {
+      this.instrumentosService.getInstrumentos().subscribe(instrumentos => {
+        this.resultadosBusqueda = instrumentos.filter(instrumento =>
+          instrumento.nombre.toLowerCase().includes(this.terminoBusqueda.toLowerCase())
+        );
+      });
+    } else {
+      this.resultadosBusqueda = [];
     }
   }
 }

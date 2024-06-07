@@ -6,7 +6,8 @@ import { BajosComponent } from './pages/bajos/bajos.component';
 import { ProfileComponent } from './auth/profile/profile.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './auth/login/login.component';
-import {PersonalDetailsComponent} from './components/personal-details/personal-details.component';
+import { PersonalDetailsComponent} from './components/personal-details/personal-details.component';
+import { PublicarComponent } from './pages/publicar/publicar.component';
 
 export const routes: Routes = [
     
@@ -18,6 +19,7 @@ export const routes: Routes = [
     {path: 'dashboard', component:DashboardComponent},
     {path: 'login', component:LoginComponent},
     {path: 'personal-details', component:PersonalDetailsComponent},
+    {path: 'publicar', component:PublicarComponent},
 
     {path: '**',redirectTo: '',pathMatch:'full' },
 
