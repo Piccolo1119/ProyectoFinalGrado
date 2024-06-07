@@ -13,9 +13,10 @@ public class TipoInstrumentos {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "id", unique = true)
+    @Column(unique = true)
     private Long id;
 
     @Column(length = 255)
     private String nombre;
+    
 }

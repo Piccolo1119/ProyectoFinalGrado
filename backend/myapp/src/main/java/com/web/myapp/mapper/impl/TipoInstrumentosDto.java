@@ -2,23 +2,23 @@ package com.web.myapp.mapper.impl;
 
 public class TipoInstrumentosDto {
 
-    private Long id;
+    private Long idtipo;
 
     private String nombre;
 
     public TipoInstrumentosDto(){}
 
     public TipoInstrumentosDto(Long id, String nombre) {
-        this.id = id;
+        this.idtipo = id;
         this.nombre = nombre;
     }
 
     public Long getId() {
-        return id;
+        return idtipo;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.idtipo = id;
     }
 
     public String getNombre() {
