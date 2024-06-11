@@ -17,10 +17,6 @@ export class NavComponent implements OnInit {
 
   constructor(private LoginService:LoginService) { }
 
-  ngOnDestroy(): void {
-    this.LoginService.currentUserLoginOn.unsubscribe()
-  }
-
   ngOnInit(): void {
     this.LoginService.currentUserLoginOn.subscribe(
       {
@@ -30,5 +26,11 @@ export class NavComponent implements OnInit {
       }
     )
   }
+
+  logout(){
+    this.LoginService.logout();
+  }
+
+  
 
 }

@@ -13,7 +13,7 @@ export class UserService {
 
   getUser(id:number):Observable<User>
   {
-    return this.http.get<User>("http://localhost:8080/api/v1/usuarios/"+id).pipe(
+    return this.http.get<User>("http://localhost:8080/api/v1/usuarios/"+1).pipe(
       catchError(this.handleError)
     )
   }

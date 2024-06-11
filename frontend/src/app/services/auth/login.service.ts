@@ -19,6 +19,7 @@ export class LoginService {
   }
 
   login(credentials:LoginRequest):Observable<any>{
+    console.log(credentials);
     return this.http.post<any>("http://localhost:8080/auth/login",credentials).pipe(
       tap( (userData) => {
         sessionStorage.setItem("token", userData.token);

@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { LoginService } from '../../services/auth/login.service';
 import { User } from '../../services/auth/user';
 import {PersonalDetailsComponent} from '../../components/personal-details/personal-details.component';
+import { InstrumentosService } from '../../services/instrumentos/instrumentos.service';
+import { Instrumento } from '../../../model/instrumento.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,22 +19,48 @@ import {PersonalDetailsComponent} from '../../components/personal-details/person
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent implements OnInit , OnDestroy {
-  userLoginOn:boolean=false;
-  userData?:User;
+export class DashboardComponent implements OnInit, OnDestroy {
+  userLoginOn: boolean = false;
+  userData?: User;
+  instrumentos: Instrumento[] = [];
+  private subscriptions: Subscription[] = [];
 
-  constructor(private loginService:LoginService) { }
-
-  ngOnDestroy(): void {
-    this.loginService.currentUserData.unsubscribe();
-  }
+  constructor(
+    private loginService: LoginService,
+    private instrumentosService: InstrumentosService
+  ) { }
 
   ngOnInit(): void {
-    this.loginService.currentUserLoginOn.subscribe({
-      next:(userLoginOn) => {
-        this.userLoginOn=userLoginOn;
-      }
-    });
+    this.subscriptions.push(
+      this.loginService.currentUserLoginOn.subscribe({
+        next: (userLoginOn) => {
+          this.userLoginOn = userLoginOn;
+          if (this.userLoginOn) {
+            this.loadInstruments();
+          }
+        }
+      })
+    );
+  }
+
+  loadInstruments(): void {
+    const userId = 1; // Reemplaza esto con el ID real del usuario autenticado
+    console.log('ID del usuario:', userId); // Log del ID del usuario
+    this.subscriptions.push(
+      this.instrumentosService.getInstrumentosByVendedorId(userId).subscribe({
+        next: (instruments) => {
+          this.instrumentos = instruments;
+          console.log('Instrumentos devueltos:', instruments); // Log de los instrumentos devueltos
+        },
+        error: (err) => {
+          console.error('Error fetching instruments:', err);
+        }
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
 }

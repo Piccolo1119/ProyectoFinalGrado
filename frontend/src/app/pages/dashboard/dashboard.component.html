@@ -2,38 +2,41 @@
 <p *ngIf="!userLoginOn" class="alert alert-danger">Usuario NO autenticado</p>
 <p *ngIf="userLoginOn" class="alert alert-success">Usuario Autenticado</p>
 
-<div class="card ">
-    <div class="card-header">
-        Datos Personales
-    </div>
-    <div class="card-body m-0">
-        <app-personal-details></app-personal-details>
-    </div>
-
-</div>
 <div class="card">
-    <div class="card-header">
-        Perfil Profesional
-    </div>
-    <div class="card-body m-0">
-
-    </div>
-</div>
-<div class="card">
-    <div class="card-header">
-        Datos Académicos
-    </div>
-    <div class="card-body m-0">
-
-    </div>
-
+  <div class="card-header">
+    Datos Personales
+  </div>
+  <div class="card-body m-0">
+    <app-personal-details></app-personal-details>
+  </div>
 </div>
 
 <div class="card">
-    <div class="card-header">
-        Experiencia Laboral
-    </div>
-    <div class="card-body m-0">
+  <div class="card-header">
+    Productos vendidos
+  </div>
+</div>
 
-    </div>
+<div class="card">
+  <div class="card-header">
+    Productos comprados
+  </div>
+  <div class="card-body m-0">
+    <div class="card-body m-0">
+        <div *ngIf="instrumentos.length > 0; else noInstruments" class="card-deck">
+          <div class="card" *ngFor="let instrument of instrumentos">
+            <img [src]="instrument.imagen" class="card-img-top" alt="Instrumento imagen">
+            <div class="card-body">
+              <h5 class="card-title">{{ instrument.nombre }}</h5>
+              <p class="card-text">{{ instrument.descripcion }}</p>
+              <p class="card-text"><small class="text-muted">Marca: {{ instrument.marca }}</small></p>
+              <p class="card-text"><strong>Precio: ${{ instrument.precio }}</strong></p>
+            </div>
+          </div>
+        </div>
+        <ng-template #noInstruments>
+          <p>No hay productos comprados.</p>
+        </ng-template>
+      </div>
+  </div>
 </div>

@@ -16,7 +16,7 @@
             <a class="nav-link" href="/login">Iniciar Sesión</a>
           </li>
           <li *ngIf="userLoginOn" class="nav-item">
-            <a class="nav-link" href="/home" aria-disabled="true">Cerrar Sesión</a>
+            <a class="nav-link" href="javascript:void(0);" (click)="logout()" aria-disabled="true">Cerrar Sesión</a>
           </li>
         </ul>
       </div>

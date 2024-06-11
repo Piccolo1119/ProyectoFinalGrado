@@ -15,23 +15,20 @@ import { LoginRequest } from '../../services/auth/loginRequest';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginError: string = '';
   loginForm = this.formBuilder.group({
     username:['', [Validators.required, Validators.email]],
-    password:['', [Validators.required]],
+    pass:['', [Validators.required]],
   })
   constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService) { }
-
-  ngOnInit(): void {
-  }
 
   get email() {
     return this.loginForm.controls.username;
   }
 
   get password() {
-    return this.loginForm.controls.password;
+    return this.loginForm.controls.pass;
   }
 
   login() {

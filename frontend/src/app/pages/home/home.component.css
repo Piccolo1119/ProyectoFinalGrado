@@ -5,41 +5,95 @@
 
 .carrusel .carousel-inner img {
   height: 500px; /* Adjust the height as needed */
-  object-fit: cover; /* Ensure the images cover the area */
+  /* object-fit: cover; */ /* Ensure the images cover the area */
 }
 
 .custom-caption {
   position: absolute;
   top: 40%;
-  right: 5%;
+  right: 15%;
   left: auto;
   transform: translateY(-50%);
-  width: 100%;
-  text-align: right;
+  width: 350px;
+  height: 150px;
+  text-align: center;
   color: rgba(187, 13, 187, 0.911);
+  border-radius: 10px;
+  padding: 20px;
+  display: grid;
+  place-content: center;
+  background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.22),
+    1px 0px 0px 0px rgba(0, 0, 0, 0.22), 1px 2px 0px 0px rgba(0, 0, 0, 0.22),
+    2px 1px 0px 0px rgba(0, 0, 0, 0.22), 2px 3px 0px 0px rgba(0, 0, 0, 0.22),
+    3px 2px 0px 0px rgba(0, 0, 0, 0.22), 3px 4px 0px 0px rgba(0, 0, 0, 0.22),
+    4px 3px 0px 0px rgba(0, 0, 0, 0.22), 4px 5px 0px 0px rgba(0, 0, 0, 0.22),
+    5px 4px 0px 0px rgba(0, 0, 0, 0.22), 5px 6px 0px 0px rgba(0, 0, 0, 0.22),
+    6px 5px 0px 0px rgba(0, 0, 0, 0.22), 6px 7px 0px 0px rgba(0, 0, 0, 0.22),
+    7px 6px 0px 0px rgba(0, 0, 0, 0.22), 7px 8px 0px 0px rgba(0, 0, 0, 0.22),
+    8px 7px 0px 0px rgba(0, 0, 0, 0.22);
 }
 
 .custom-caption-left {
   position: absolute;
   top: 40%;
-  left: 5%;
+  left: 10%;
   right: auto;
   transform: translateY(-50%);
-  width: 100%;
-  text-align: left;
-  color: yellow;
+  width: 350px;
+  height: 150px;
+  text-align: center;
+  color: rgba(187, 13, 187, 0.911);
+  border-radius: 10px;
+  padding: 30px;
+  display: grid;
+  place-content: center;
+  background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.22),
+    1px 0px 0px 0px rgba(0, 0, 0, 0.22), 1px 2px 0px 0px rgba(0, 0, 0, 0.22),
+    2px 1px 0px 0px rgba(0, 0, 0, 0.22), 2px 3px 0px 0px rgba(0, 0, 0, 0.22),
+    3px 2px 0px 0px rgba(0, 0, 0, 0.22), 3px 4px 0px 0px rgba(0, 0, 0, 0.22),
+    4px 3px 0px 0px rgba(0, 0, 0, 0.22), 4px 5px 0px 0px rgba(0, 0, 0, 0.22),
+    5px 4px 0px 0px rgba(0, 0, 0, 0.22), 5px 6px 0px 0px rgba(0, 0, 0, 0.22),
+    6px 5px 0px 0px rgba(0, 0, 0, 0.22), 6px 7px 0px 0px rgba(0, 0, 0, 0.22),
+    7px 6px 0px 0px rgba(0, 0, 0, 0.22), 7px 8px 0px 0px rgba(0, 0, 0, 0.22),
+    8px 7px 0px 0px rgba(0, 0, 0, 0.22);
 }
 
 .custom-caption-top {
   position: absolute;
-  top: 33%;
-  left: 0;
+  top: 50%;
+  left: 15%;
   right: auto;
   transform: translateY(-50%);
-  width: 100%;
+  width: 300px;
+  height: 100px;
   text-align: center;
-  color: rgb(20, 255, 4);
+  color: rgba(187, 13, 187, 0.911);
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 30px;
+  display: grid;
+  place-content: center;
+  background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.22),
+    1px 0px 0px 0px rgba(0, 0, 0, 0.22), 1px 2px 0px 0px rgba(0, 0, 0, 0.22),
+    2px 1px 0px 0px rgba(0, 0, 0, 0.22), 2px 3px 0px 0px rgba(0, 0, 0, 0.22),
+    3px 2px 0px 0px rgba(0, 0, 0, 0.22), 3px 4px 0px 0px rgba(0, 0, 0, 0.22),
+    4px 3px 0px 0px rgba(0, 0, 0, 0.22), 4px 5px 0px 0px rgba(0, 0, 0, 0.22),
+    5px 4px 0px 0px rgba(0, 0, 0, 0.22), 5px 6px 0px 0px rgba(0, 0, 0, 0.22),
+    6px 5px 0px 0px rgba(0, 0, 0, 0.22), 6px 7px 0px 0px rgba(0, 0, 0, 0.22),
+    7px 6px 0px 0px rgba(0, 0, 0, 0.22), 7px 8px 0px 0px rgba(0, 0, 0, 0.22),
+    8px 7px 0px 0px rgba(0, 0, 0, 0.22);
 }
+
+/* .carousel-item:nth-of-type(3) img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 100%;
+} */
+
 
 .custom-caption h5,
 .custom-caption-left h5,
@@ -76,6 +130,7 @@
   .custom-caption-left h5,
   .custom-caption-top h5 {
     font-size: 1.5rem; /* Smaller font size for small devices */
+    
   }
 
   .custom-caption p,
@@ -108,3 +163,41 @@
     font-size: 0.9rem; /* Smaller font size for extra small devices */
   }
 }
+
+.boton{
+  background-color: purple;
+  color: white;
+  border-color: purple;
+}
+
+
+.image {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 250px;
+  border-radius: 10px 10px 0 0;
+}
+
+
+.headerp {
+  background-color: white;
+}
+
+.borde {
+  border-radius: 10px;
+}
+
+.carta {
+  border-color: white;
+  box-shadow: 0 0 5px purple;
+}
+
+
+/* .carruImg {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 250px;
+ 
+} */

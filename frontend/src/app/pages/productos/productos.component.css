@@ -1,0 +1,32 @@
+.boton{
+    background-color: purple;
+    color: white;
+    border-color: purple;
+}
+.container {
+    padding: 50px;
+}
+
+.card-body{
+    border-radius: 0 0 10px 10px;
+    background-color: #fff;
+    text-align: justify;
+    /* border: 1px solid #ccc; */
+}
+
+.headerp {
+    background-color: white;
+    border-bottom: purple;
+}
+
+.image {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 250px;
+    border-radius: 10px 10px 0 0;
+}
+
+.carta {
+    box-shadow: 0 0 5px purple;
+}

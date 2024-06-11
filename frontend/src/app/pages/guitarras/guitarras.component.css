@@ -1,0 +1,27 @@
+.boton{
+    background-color: purple;
+    color: white;
+    border-color: purple;
+  }
+
+  .image {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 250px;
+    border-radius: 10px 10px 0 0;
+}
+
+
+.headerp {
+    background-color: white;
+}
+
+.container {
+  padding: 50px;
+}
+
+.carta {
+  border-color: white;
+  box-shadow: 0 0 5px purple;
+}
