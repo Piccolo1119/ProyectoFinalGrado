@@ -24,12 +24,19 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
 
     public AuthResponse login(LoginRequest request) {
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        System.out.println(request);
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPass()));
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         UserDetails userDetails = usuariosrepository.findByUsername(request.getUsername()).orElseThrow();
         String token = jwtService.getToken(userDetails);
-        return AuthResponse.builder()
+        AuthResponse authResponse = new AuthResponse(token);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        System.out.println(authResponse);
+        return authResponse;
+        /* return AuthResponse.builder()
             .token(token)
-            .build();
+            .build(); */
     }
 
     public AuthResponse register(RegisterRequest request) {

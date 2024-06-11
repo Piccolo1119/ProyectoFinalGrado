@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.web.myapp.jwt.JwtAuthenticationFilter;
 
@@ -36,6 +38,7 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.GET).permitAll()
                     .requestMatchers(HttpMethod.OPTIONS).permitAll()
                     .requestMatchers("/auth/**").permitAll()
+                    .requestMatchers("auth/login").permitAll()
                     .anyRequest().permitAll()
             )
             .sessionManagement(sessionManager ->
@@ -46,4 +49,5 @@ public class SecurityConfig {
             .build();
             
     }
+
 }

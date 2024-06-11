@@ -45,4 +45,13 @@ public class InstrumentosServiceImpl implements InstrumentosService {
     public List<Instrumentos> findByTipoInstrumentoId(Long tipoInstrumentoId) {
         return daoInstrumentos.findByTipoInstrumentoId(tipoInstrumentoId);
     }
+
+    @Override
+    public Optional<Instrumentos> findInstrumentosById(Long instrumentoId) {
+        return daoInstrumentos.findById(instrumentoId);
+    }
+
+    public List<Instrumentos> getInstrumentosByVendedorId(Long idVendedor) {
+        return daoInstrumentos.findByIdVendedor(idVendedor);
+    }
 }

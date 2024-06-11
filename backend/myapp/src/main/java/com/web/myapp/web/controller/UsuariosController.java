@@ -33,7 +33,7 @@ public class UsuariosController {
         return ResponseEntity.ok(usuariosDto);
     }
 
-    @PutMapping(value = "{id}")
+    @PutMapping()
     public ResponseEntity<UsuariosResponse> updateUser(@RequestBody UsuariosRequest usuariosRequest)
     {
         return ResponseEntity.ok(usuariosService.updateUsuarios(usuariosRequest));

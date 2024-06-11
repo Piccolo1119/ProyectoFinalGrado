@@ -73,4 +73,24 @@ public class InstrumentosController {
         }
     }
     
+    @GetMapping("/instrumentos/{id}")
+    public ResponseEntity<Instrumentos> getInstrumentoById(@PathVariable Long id) {
+        // Llama al servicio para obtener el instrumento por su ID
+        return instrumentosService.findInstrumentosById(id)
+                .map(instrumento -> ResponseEntity.ok().body(instrumento))
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @GetMapping("/instrumentos/vendedorId/{vendedorId}")
+    public ResponseEntity<List<Instrumentos>> getInstrumentosByVendedorId(@PathVariable Long vendedorId) {
+        try {
+            List<Instrumentos> instrumentos = instrumentosService.getInstrumentosByVendedorId(vendedorId);
+            if (instrumentos.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            }
+            return ResponseEntity.ok(instrumentos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
 }
