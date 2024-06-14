@@ -20,9 +20,16 @@ export class HeaderComponent implements OnInit {
   constructor(private instrumentosService: InstrumentosService) { }
 
   ngOnInit(): void {
-    this.instrumentosService.getInstrumentos().subscribe((data: any[]) => {
-      console.log('Instrumentos cargados:', data); // Depuración
-      this.todosInstrumentos = data;
+    const userId = 1; // Reemplaza esto con el ID real del usuario autenticado
+    console.log('ID del usuario:', userId); // Log del ID del usuario
+    this.instrumentosService.getInstrumentosByVendedorIdNot(userId).subscribe({
+      next: (data: any[]) => {
+        console.log('Instrumentos cargados:', data); // Depuración
+        this.todosInstrumentos = data;
+      },
+      error: (err) => {
+        console.error('Error fetching instruments:', err);
+      }
     });
   }
 

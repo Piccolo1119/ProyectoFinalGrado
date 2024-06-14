@@ -1,10 +1,11 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { ApplicationConfig, inject } from '@angular/core';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { HttpClientModule, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
+import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(), provideHttpClient(), HttpClientModule]
+  providers: [provideRouter(routes, withComponentInputBinding()), provideClientHydration(), provideHttpClient(withInterceptors([JwtInterceptorService])), HttpClientModule]
 };

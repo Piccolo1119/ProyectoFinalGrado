@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Instrumento } from '../../../model/instrumento.model';
+import { Subscription } from 'rxjs';
+import { InstrumentosService } from '../../services/instrumentos/instrumentos.service';
 
 
 @Component({
@@ -12,20 +15,28 @@ import { FormsModule } from '@angular/forms';
   imports: [HttpClientModule, CommonModule, FormsModule]
 })
 export class BajosComponent implements OnInit {
-  bajos: any[] = [];
+  private subscriptions: Subscription[] = [];
+  instrumentos: Instrumento[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private instrumentosService: InstrumentosService) { }
 
   ngOnInit(): void {
-    // Filtrar por el tipo de instrumento (id=1 para guitarras)
-    this.http.get<any[]>('http://localhost:8080/findByTipoinstrumentos', { params: { tipo_instrumento: '2' } }).subscribe(data => {
-      // Transforma las rutas de las imágenes para que sean accesibles desde el navegador
-      this.bajos = data.map(instrumento => {
-        return {
-          ...instrumento,
-          imagen: instrumento.imagen.replace('C:\\JULIOdocs\\DAW2º\\TFG-Julio\\backend\\myapp\\src\\assets\\images', '/assets/images')
-        };
-      });
-    });
+    const tipoInstrumento = 2; // ID para bajos
+    const userId = 1; // Reemplaza esto con el ID real del usuario autenticado
+
+    console.log('ID del usuario:', userId); // Log del ID del usuario
+
+    // Llamada al método con los parámetros directamente en las opciones
+    this.subscriptions.push(
+      this.instrumentosService.getInstrumentoTipoVendedorId(tipoInstrumento).subscribe({
+        next: (instruments) => {
+          this.instrumentos = instruments;
+          console.log('Instrumentos devueltos:', instruments); // Log de los instrumentos devueltos
+        },
+        error: (err) => {
+          console.error('Error fetching instruments:', err);
+        }
+      })
+    );
   }
 }

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { InstrumentosService } from '../../services/instrumentos/instrumentos.service';
+import { Subscription } from 'rxjs';
+import { Instrumento } from '../../../model/instrumento.model';
 
 @Component({
   selector: 'app-productos',
@@ -11,20 +14,25 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule, HttpClientModule],
 })
 export class ProductosComponent implements OnInit {
-  productos: any[] = [];
+  private subscriptions: Subscription[] = [];
+  instrumentos: Instrumento[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private instrumentosService: InstrumentosService,) { }
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:8080/instrumentos').subscribe(data => {
-      // Transforma las rutas de las imágenes para que sean accesibles desde el navegador
-      this.productos = data.map(producto => {
-        return {
-          ...producto,
-          imagen: producto.imagen.replace('C:\\JULIOdocs\\DAW2º\\TFG-Julio\\backend\\myapp\\src\\assets\\images', '/assets/images')
-        };
-      });
-    });
+    const userId = 1; // Reemplaza esto con el ID real del usuario autenticado
+    console.log('ID del usuario:', userId); // Log del ID del usuario
+    this.subscriptions.push(
+      this.instrumentosService.getInstrumentosByVendedorIdNot(userId).subscribe({
+        next: (instruments) => {
+          this.instrumentos = instruments;
+          console.log('Instrumentos devueltos:', instruments); // Log de los instrumentos devueltos
+        },
+        error: (err) => {
+          console.error('Error fetching instruments:', err);
+        }
+      })
+    );
   }
 
 }

@@ -2,8 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginRequest } from './loginRequest';
 import  {  Observable, throwError, catchError, BehaviorSubject , tap, map} from 'rxjs';
-import { User } from './user';
-import { environment } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'

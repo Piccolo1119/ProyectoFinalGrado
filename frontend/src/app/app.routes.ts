@@ -11,6 +11,7 @@ import { PublicarComponent } from './pages/publicar/publicar.component';
 import { PedidosComponent } from './pages/pedidos/pedidos.component';
 import { PoliticaComponent } from './pages/politica/politica.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 export const routes: Routes = [
     
@@ -23,9 +24,10 @@ export const routes: Routes = [
     {path: 'login', component:LoginComponent},
     {path: 'personal-details', component:PersonalDetailsComponent},
     {path: 'publicar', component:PublicarComponent},
-    {path: 'pedidos', component:PedidosComponent},
+    {path: 'pedidos/:idInstrumento', component:PedidosComponent},
     {path: 'politica', component:PoliticaComponent},
     {path: 'quienes-somos', component:QuienesSomosComponent},
+    {path: 'register', component:RegisterComponent},
 
     {path: '**',redirectTo: '',pathMatch:'full' },
 

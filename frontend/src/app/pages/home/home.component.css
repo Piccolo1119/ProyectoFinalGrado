@@ -170,6 +170,9 @@
   border-color: purple;
 }
 
+.boton:hover {
+  background-color: rgb(164, 1, 164);
+}
 
 .image {
   background-size: cover;
@@ -182,6 +185,7 @@
 
 .headerp {
   background-color: white;
+  border-bottom: purple;
 }
 
 .borde {
@@ -189,9 +193,14 @@
 }
 
 .carta {
-  border-color: white;
-  box-shadow: 0 0 5px purple;
+  box-shadow: 0 0 3px purple;
+  transition: 0.3s;
 }
+
+.carta:hover {
+  box-shadow: 0 0 15px rgb(164, 1, 164);
+}
+
 
 
 /* .carruImg {

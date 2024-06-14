@@ -1,25 +1,48 @@
-<form #pedidoForm="ngForm" (ngSubmit)="submitPedido()">
-    <h2>Tu pedido</h2>
-    <br>
-    <div>
-      <label for="estadoPago">Estado de Pago  </label><br>
-      <input type="text" id="estadoPago" name="estadoPago" [(ngModel)]="pedido.estadoPago" required>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 ">
+      <div class="card mb-4">
+        <div class="card-header" style="background-color: purple; color: white;">
+          <h2 class="text-center ">Crear nuevo pedido de instrumento: <p>{{pedido.producto.nombre}}</p> </h2>
+        </div>
+        <div class="card-body p-4">
+          <div class="text-center mt-2">
+            <img [src]="pedido.producto.imagen" alt="{{pedido.producto.nombre}}" class="img-thumbnail" style="max-width: 200px;">
+          </div>
+          <form #pedidoForm="ngForm" (ngSubmit)="submitPedido()">
+            <div class="form-group mb-2">
+              <div class="form-group mb-2">
+                <label for="codigo">Código de Pedido:</label><br>
+                <input type="text" id="codigo" class="form-control" [(ngModel)]="pedido.codigo" name="codigo" readonly>
+              </div>
+              <label for="estadoPago">Estado de Pago: </label><br>
+              <select id="estadoPago" class="form-control" [(ngModel)]="pedido.estadoPago" name="estadoPago" required>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Pagado">Pagado</option>
+              </select>
+            </div>
+            <div class="form-group mb-2">
+              <label for="fecha">Fecha: </label><br>
+              <input type="date" id="fecha" class="form-control" [(ngModel)]="pedido.fecha" name="fecha" required>
+            </div>
+            <div class="form-group mb-2">
+              <label for="monto">Monto:  <i>+GG</i></label><br>
+              <input type="number" id="monto" class="form-control" [(ngModel)]="pedido.monto" name="monto" required>
+            </div>
+            <!-- Otros campos del pedido si los tienes -->
+            <!-- Campo oculto para almacenar el ID del comprador -->
+            <!-- <input type="hidden" name="idComprador" [(ngModel)]="pedido.comprador.id"> -->
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-primary boton">Crear Pedido</button>
+            </div>
+            <br>
+            <div class="alert alert-success" *ngIf="mensajeExito">
+              {{ mensajeExito }}
+            </div>
+            <br>
+          </form>
+        </div>
+      </div>
     </div>
-    <br>
-    <div>
-      <label for="fecha">Fecha</label><br>
-      <input type="date" id="fecha" name="fecha" [(ngModel)]="pedido.fecha" required>
-    </div>
-    <br>
-    <div>
-      <label for="monto">Monto  </label><br>
-      <input type="number" id="monto" name="monto" [(ngModel)]="pedido.monto" required>
-    </div>
-    <!-- Otros campos del pedido si los tienes -->
-    
-    <!-- Campo oculto para almacenar el ID del comprador -->
-    <!-- <input type="hidden" name="idComprador" [(ngModel)]="pedido.comprador.id"> -->
-    <br>
-    <button type="submit">Crear Pedido</button>
-  </form>
-  
+  </div>
+</div>

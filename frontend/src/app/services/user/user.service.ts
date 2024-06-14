@@ -27,4 +27,11 @@ export class UserService {
     }
     return throwError(() => new Error('Algo ha ido mal; por favor, inténtelo de nuevo mas tarde.'));
   }
+
+  updateUser(usuariosRequest:User):Observable<any>
+  {
+    return this.http.put<User>("http://localhost:8080/api/v1/usuarios/", usuariosRequest).pipe(
+      catchError(this.handleError)
+    )
+  }
 }

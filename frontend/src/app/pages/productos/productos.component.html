@@ -6,7 +6,7 @@
   </div>
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
     <!-- Repetir este bloque para cada producto -->
-    <div class="col" *ngFor="let producto of productos">
+    <div class="col" *ngFor="let producto of instrumentos">
       <div class="card h-100 w-100 mb-3 carta">
         <div class="card-header headerp">
           <img [src]="producto.imagen" class="card-img-top image" alt="{{ producto.nombre }}">
@@ -16,7 +16,7 @@
           <p class="card-text"><strong>Marca: </strong> {{ producto.marca }}</p>
           <!-- <p class="card-text"><strong>Descripción: </strong>{{ producto.descripcion }}</p> -->
           <p class="card-text"><strong>Precio: </strong>{{ producto.precio | currency }}</p>
-          <a href="/pedidos" class="btn btn-primary boton">Comprar</a>
+          <a href="/pedidos/{{ producto.id }}" class="btn btn-primary boton">Comprar</a>
         </div>
       </div>
     </div>

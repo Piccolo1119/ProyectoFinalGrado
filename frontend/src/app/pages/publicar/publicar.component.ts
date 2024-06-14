@@ -62,7 +62,7 @@ export class PublicarComponent {
         }
       }, error => {
         console.error('Ha ocurrido un error en la solicitud HTTP:', error);
-        alert('Ha ocurrido un error en la solicitud HTTP.');
+        /* alert('Ha ocurrido un error en la solicitud HTTP.'); */
       });
   }
 

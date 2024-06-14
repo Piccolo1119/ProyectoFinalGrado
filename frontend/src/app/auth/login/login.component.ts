@@ -18,7 +18,7 @@ import { LoginRequest } from '../../services/auth/loginRequest';
 export class LoginComponent {
   loginError: string = '';
   loginForm = this.formBuilder.group({
-    username:['', [Validators.required, Validators.email]],
+    username:['', [Validators.required]],
     pass:['', [Validators.required]],
   })
   constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService) { }
@@ -39,7 +39,7 @@ export class LoginComponent {
         },
         error: (errorData) => {
           console.log(errorData);
-          this.loginError = errorData;
+          this.loginError = "errorData";
         },
         complete: () => {
           console.log("login complete");
@@ -50,7 +50,7 @@ export class LoginComponent {
       });
     } else {
       this.loginForm.markAllAsTouched();
-      alert("Error");
+      /* alert("Error al ingresasr "); */
     }
   }
 

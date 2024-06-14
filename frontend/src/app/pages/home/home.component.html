@@ -48,17 +48,17 @@
   <!-- Popular Products Row -->
   <div class="row mb-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
     <!-- Repetir este bloque para cada producto -->
-    <div class="col" *ngFor="let producto of productos">
+    <div class="col" *ngFor="let instrumento of instrumentos">
       <div class="card h-100 w-100 mb-3 carta">
         <div class="card-header headerp">
-          <img [src]="producto.imagen" class="card-img-top image p-3" alt="{{ producto.nombre }}">
+          <img [src]="instrumento.imagen" class="card-img-top image p-3" alt="{{ instrumento.nombre }}">
         </div>
         <div class="card-body">
-          <h4 class="card-title">{{ producto.nombre }}</h4>
-          <p class="card-text"><strong>Marca: </strong> {{ producto.marca }}</p>
+          <h4 class="card-title">{{ instrumento.nombre }}</h4>
+          <p class="card-text"><strong>Marca: </strong> {{ instrumento.marca }}</p>
           <!-- <p class="card-text"><strong>Descripción: </strong>{{ producto.descripcion }}</p> -->
-          <p class="card-text"><strong>Precio: </strong>{{ producto.precio | currency }}</p>
-          <a href="/pedidos" class="btn btn-primary boton">Comprar</a>
+          <p class="card-text"><strong>Precio: </strong>{{ instrumento.precio | currency }}</p>
+          <a href="/pedidos/{{ instrumento.id }}" class="btn btn-primary boton">Comprar</a>
         </div>
       </div>
     </div>

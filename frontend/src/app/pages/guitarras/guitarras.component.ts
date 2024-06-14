@@ -1,31 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule,HttpClient } from '@angular/common/http';
+import { InstrumentosService } from '../../services/instrumentos/instrumentos.service';
+import { Subscription } from 'rxjs';
+import { Instrumento } from '../../../model/instrumento.model';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
 
 @Component({
   selector: 'app-guitarras',
   templateUrl: './guitarras.component.html',
   styleUrls: ['./guitarras.component.css'],
   standalone: true,
-  imports: [HttpClientModule, CommonModule, FormsModule]
+  imports: [CommonModule],
+  // No es necesario importar HttpClientModule, CommonModule o FormsModule aquí si ya están importados globalmente
 })
 export class GuitarrasComponent implements OnInit {
-  guitarras: any[] = [];
+  private subscriptions: Subscription[] = [];
+  instrumentos: Instrumento[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private instrumentosService: InstrumentosService) { }
 
   ngOnInit(): void {
-    // Filtrar por el tipo de instrumento (id=1 para guitarras)
-    this.http.get<any[]>('http://localhost:8080/findByTipoinstrumentos', { params: { tipo_instrumento: '1' } }).subscribe(data => {
-      // Transforma las rutas de las imágenes para que sean accesibles desde el navegador
-      this.guitarras = data.map(instrumento => {
-        return {
-          ...instrumento,
-          imagen: instrumento.imagen.replace('C:\\JULIOdocs\\DAW2º\\TFG-Julio\\backend\\myapp\\src\\assets\\images', '/assets/images')
-        };
-      });
-    });
+    const tipoInstrumento = 1; // ID para guitarras
+    const userId = 1; // Reemplaza esto con el ID real del usuario autenticado
+
+    console.log('ID del usuario:', userId); // Log del ID del usuario
+
+    // Llamada al método con los parámetros directamente en las opciones
+    this.subscriptions.push(
+      this.instrumentosService.getInstrumentoTipoVendedorId(tipoInstrumento).subscribe({
+        next: (instruments) => {
+          this.instrumentos = instruments;
+          console.log('Instrumentos devueltos:', instruments); // Log de los instrumentos devueltos
+        },
+        error: (err) => {
+          console.error('Error fetching instruments:', err);
+        }
+      })
+    );
   }
 }
