@@ -43,6 +43,9 @@ public class Instrumentos {
 
     @Column(name = "descripcion")
     private String descripcion;
+
+    @Column(name = "activo")
+    private boolean activo;
     
     
 }

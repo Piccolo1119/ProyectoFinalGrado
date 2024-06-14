@@ -36,7 +36,25 @@ public class UsuariosService {
         return new UsuariosResponse("El usuario se registró satisfactoriamente");
     }
 
-    public UsuariosDto getUsuarios(Long id) {
+    public UsuariosDto getUsuariosByUsername(String username) {
+        Usuarios usuarios = usuariosRepository.findByUsername(username).orElse(null);
+        
+        if (usuarios != null) {
+            return UsuariosDto.builder()
+                    .id(usuarios.getId())
+                    .nombre(usuarios.getNombre())
+                    .apellidos(usuarios.getApellidos())
+                    .email(usuarios.getEmail())
+                    .username(usuarios.getUsername())
+                    .telefono(usuarios.getTelefono())
+                    .fechaNac(usuarios.getFechaNac())
+                    .build();
+        }
+        
+        return null;
+    }
+
+    public UsuariosDto getUsuariosId(Long id) {
         Usuarios usuarios = usuariosRepository.findById(id).orElse(null);
         
         if (usuarios != null) {
@@ -52,5 +70,9 @@ public class UsuariosService {
         }
         
         return null;
+    }
+
+    public Usuarios getUsuarios(UsuariosRequest usuariosRequest) {
+        return usuariosRepository.findByUsername(usuariosRequest.getUsername()).orElse(null);
     }
 }

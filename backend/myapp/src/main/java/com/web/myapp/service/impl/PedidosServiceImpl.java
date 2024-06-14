@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.web.myapp.model.Pedidos;
 import com.web.myapp.repository.PedidosRepository;
+import com.web.myapp.service.InstrumentosService;
 import com.web.myapp.service.PedidosService;
 
 @Service
@@ -15,42 +16,23 @@ public class PedidosServiceImpl implements PedidosService {
 
     @Autowired
     private PedidosRepository pedidosRepository;
+    @Autowired
+    private InstrumentosService instrumentosService;
 
     @Override
-    public List<Pedidos> getAllPedidos() {
-        return pedidosRepository.findAll();
-    }
-
-    @Override
-    public Pedidos getPedidosById(Long id) {
-        Optional<Pedidos> optionalPedido = pedidosRepository.findById(id);
-        return optionalPedido.orElse(null);
+    public List<Pedidos> findAll() {
+        List<Pedidos> listPedidos = pedidosRepository.findAll();
+        return listPedidos;
     }
 
     @Override
     public Pedidos addPedidos(Pedidos pedidos) {
+        instrumentosService.actualizarEstadoActivo(pedidos.getInstrumento().getId(), false);
         return pedidosRepository.save(pedidos);
     }
 
     @Override
-    public Pedidos editPedidos(Long id, Pedidos pedidosDetails) {
-        Optional<Pedidos> optionalPedido = pedidosRepository.findById(id);
-        if (optionalPedido.isPresent()) {
-            Pedidos pedidos = optionalPedido.get();
-            pedidos.setEstadoPago(pedidosDetails.getEstadoPago());
-            pedidos.setFecha(pedidosDetails.getFecha());
-            pedidos.setMonto(pedidosDetails.getMonto());
-            pedidos.setComprador(pedidosDetails.getComprador());
-            pedidos.setInstrumento(pedidosDetails.getInstrumento());
-            pedidos.setTelefonoVendedor(pedidosDetails.getTelefonoVendedor());
-            return pedidosRepository.save(pedidos);
-        }
-        return null;
-    }
-
-    @Override
-    public void deletePedidos(Long id) {
-        Optional<Pedidos> optionalPedido = pedidosRepository.findById(id);
-        optionalPedido.ifPresent(pedidosRepository::delete);
+    public List<Pedidos> getPedidosByComprador(Long userId) {
+        return pedidosRepository.findByComprador(userId);
     }
 }

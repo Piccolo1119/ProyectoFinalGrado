@@ -39,6 +39,9 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.OPTIONS).permitAll()
                     .requestMatchers("/auth/**").permitAll()
                     .requestMatchers("auth/login").permitAll()
+                    .requestMatchers(HttpMethod.DELETE).permitAll()
+                    .requestMatchers(HttpMethod.PUT).permitAll()
+                    .requestMatchers(HttpMethod.POST).permitAll()
                     .anyRequest().permitAll()
             )
             .sessionManagement(sessionManager ->

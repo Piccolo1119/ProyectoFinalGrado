@@ -13,4 +13,8 @@ public interface InstrumentosService {
     List<Instrumentos> findByTipoInstrumentoId(Long tipoInstrumentoId);
     Optional<Instrumentos> findInstrumentosById(Long instrumentoId);
     List<Instrumentos> getInstrumentosByVendedorId(Long idVendedor);
+    List<Instrumentos> getInstrumentosNotBelongToVendedor(Long userId);
+    List<Instrumentos> getInstrumentosActivos();
+    void actualizarEstadoActivo(Long id, boolean estado);
+    List<Instrumentos> getInstrumentosByTipoInstrumentoAndVendedorId(Long tipoInstrumento, Long vendedorId);
 }

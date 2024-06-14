@@ -31,20 +31,16 @@ public class Pedidos {
     private Date fecha;
 
     @Column(name = "monto")
-    private Double monto;
+    private String monto;
 
-    @ManyToOne
-    @JoinColumn(name = "id_comprador", referencedColumnName = "id")
-    private Usuarios comprador;
+    @Column(name = "id_comprador")
+    private Long comprador;
 
     @ManyToOne
     @JoinColumn(name = "id_instrumento", referencedColumnName = "id")
     private Instrumentos instrumento;
 
-    @ManyToOne
-    @JoinColumn(name = "telefono_vendedor", referencedColumnName = "telefono")
-    private Usuarios telefonoVendedor;
+    @Column(name = "cod_pedido")
+    private String codigo;
 
-
-    
 }

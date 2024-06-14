@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.web.myapp.mapper.impl.UsuariosDto;
 import com.web.myapp.model.Instrumentos;
 import com.web.myapp.repository.InstrumentosRepository;
 import com.web.myapp.service.InstrumentosService;
@@ -39,6 +40,12 @@ public class InstrumentosServiceImpl implements InstrumentosService {
 
     @Override
     public Instrumentos editInstrumentos(Instrumentos instrumentos) {
+        Optional<Instrumentos> instrumento = daoInstrumentos.findById(instrumentos.getId());
+        if (!instrumento.isPresent()) {
+            System.out.println("El instrumento no existe");
+            return null;
+        }
+        System.out.println("Instrumento guardado correctamente");
         return daoInstrumentos.save(instrumentos);
     }
 
@@ -52,6 +59,31 @@ public class InstrumentosServiceImpl implements InstrumentosService {
     }
 
     public List<Instrumentos> getInstrumentosByVendedorId(Long idVendedor) {
-        return daoInstrumentos.findByIdVendedor(idVendedor);
+        return daoInstrumentos.findByIdVendedorAndActivo(idVendedor, true);
+    }
+
+    @Override
+    public List<Instrumentos> getInstrumentosNotBelongToVendedor(Long userId) {
+        return daoInstrumentos.findInstrumentosNotBelongToVendedor(userId);
+    }
+    
+    public List<Instrumentos> getInstrumentosActivos() {
+        return daoInstrumentos.findByActivoTrue();
+    }
+
+    public void actualizarEstadoActivo(Long id, boolean estado) {
+        Optional<Instrumentos> optionalInstrumento = daoInstrumentos.findById(id);
+        if (optionalInstrumento.isPresent()) {
+            Instrumentos instrumento = optionalInstrumento.get();
+            instrumento.setActivo(estado);
+            daoInstrumentos.save(instrumento);
+        } else {
+            System.out.println("Instrumento no encontrado con id: " + id);
+        }
+    }
+
+    @Override
+    public List<Instrumentos> getInstrumentosByTipoInstrumentoAndVendedorId(Long tipoInstrumento, Long vendedorId) {
+        return daoInstrumentos.findInstrumentosByTipoInstrumentoAndVendedorId(tipoInstrumento, vendedorId);
     }
 }

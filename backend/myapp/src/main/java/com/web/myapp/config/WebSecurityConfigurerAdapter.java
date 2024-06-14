@@ -17,6 +17,13 @@ public class WebSecurityConfigurerAdapter implements WebMvcConfigurer {
         this.env = env;
     }
 
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**") // Permitir solicitudes desde cualquier origen
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
+                .allowedHeaders("*"); // Encabezados permitidos
+    }
+
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
