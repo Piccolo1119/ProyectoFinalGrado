@@ -60,21 +60,23 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      Tus pedidos
-    </div>
-    <div class="card-body">
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let pedido of pedidos">
-          <!-- Aquí puedes mostrar los detalles del pedido -->
-          <p>Pedido ID: {{ pedido.codigo }}</p>
-          <p>Fecha: {{ pedido.fecha }}</p>
-          <!-- Otros detalles del pedido según la estructura de tu modelo -->
-        </li>
-        <p [hidden]="pedidos && pedidos.length > 0" class="alert alert-info">No hay pedidos disponibles.</p>
-      </ul>
-    </div>
+<div class="card">
+  <div class="card-header">
+    Tus pedidos
+  </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let pedido of pedidos">
+        <!-- Aquí puedes mostrar los detalles del pedido -->
+        <p>Pedido ID: {{ pedido.codigo }}</p>
+        <p>Fecha: {{ pedido.fecha }}</p>
+        <p>Estado de pago: {{ pedido.estadoPago }}</p>
+        <!-- Otros detalles del pedido según la estructura de tu modelo -->
+      </li>
+      <p [hidden]="pedidos && pedidos.length > 0" class="alert alert-info">No hay pedidos disponibles.</p>
+    </ul>
   </div>
 </div>
+

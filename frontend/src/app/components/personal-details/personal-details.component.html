@@ -5,7 +5,7 @@
     <p><b> Email: </b> {{user?.email}}</p>
     <p><b> Username: </b> {{user?.username}}</p>
     <p><b> Telefono: </b> {{user?.telefono}}</p>
-    <p><b> Fecha Nacimiento: </b> {{user?.fechaNac}}</p>
+    <p><b>Fecha Nacimiento: </b> {{ user?.fechaNac | date:'yyyy-MM-dd' }}</p>
 </div>
 <!-- form *ngIf="userLoginOn && editMode" [formGroup]="registerForm" (ngSubmit)="savePersonalDetailsData()">
     <div class="form-group row">

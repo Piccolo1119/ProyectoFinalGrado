@@ -73,6 +73,7 @@ export class PedidosComponent implements OnInit {
       },
       (error) => {
         console.error('Ha ocurrido un error en la solicitud HTTP:', error);
+        alert("Debe rellenar todos los campos");
         this.mensajeExito = ''; // Limpiar mensaje de éxito en caso de error
       }
     );
