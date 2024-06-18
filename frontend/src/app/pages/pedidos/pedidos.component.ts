@@ -74,7 +74,7 @@ export class PedidosComponent implements OnInit {
       },
       (error) => {
         console.error('Ha ocurrido un error en la solicitud HTTP:', error);
-        this.mensajeError = 'Error al crear el pedido. Por favor, inténtelo de nuevo.';
+        this.mensajeError = 'Error al crear el pedido. Rellena correctamente los campos.';
       }
     );
   }
