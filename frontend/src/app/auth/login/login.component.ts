@@ -39,7 +39,7 @@ export class LoginComponent {
         },
         error: (errorData) => {
           console.log(errorData);
-          this.loginError = "errorData";
+          this.loginError = "Introduce las credenciales correctas";
         },
         complete: () => {
           console.log("login complete");

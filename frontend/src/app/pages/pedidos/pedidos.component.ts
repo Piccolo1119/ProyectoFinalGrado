@@ -19,6 +19,7 @@ export class PedidosComponent implements OnInit {
   showSuccessMessage = false;
   redirectToHome = false;
   mensajeExito: string | undefined;
+  mensajeError: string | undefined;
 
   constructor(private http: HttpClient, private router: Router, private instrumentosService : InstrumentosService) {}
 
@@ -73,8 +74,7 @@ export class PedidosComponent implements OnInit {
       },
       (error) => {
         console.error('Ha ocurrido un error en la solicitud HTTP:', error);
-        alert("Debe rellenar todos los campos");
-        this.mensajeExito = ''; // Limpiar mensaje de éxito en caso de error
+        this.mensajeError = 'Error al crear el pedido. Por favor, inténtelo de nuevo.';
       }
     );
   }

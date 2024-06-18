@@ -57,7 +57,7 @@
           <h4 class="card-title">{{ instrumento.nombre }}</h4>
           <p class="card-text"><strong>Marca: </strong> {{ instrumento.marca }}</p>
           <!-- <p class="card-text"><strong>Descripción: </strong>{{ producto.descripcion }}</p> -->
-          <p class="card-text"><strong>Precio: </strong>{{ instrumento.precio | currency }}</p>
+          <p class="card-text"><strong>Precio: </strong>{{ instrumento.precio | currency: 'EUR' }}</p>
           <a href="/pedidos/{{ instrumento.id }}" class="btn btn-primary boton">Comprar</a>
         </div>
       </div>

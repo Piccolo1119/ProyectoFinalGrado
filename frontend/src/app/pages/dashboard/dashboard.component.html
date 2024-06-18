@@ -50,7 +50,7 @@
             <h5 class="card-title">{{ instrument.nombre }}</h5>
             <p class="card-text">{{ instrument.descripcion }}</p>
             <p class="card-text"><small class="text-muted">Marca: {{ instrument.marca }}</small></p>
-            <p class="card-text"><strong>Precio: ${{ instrument.precio }}</strong></p>
+            <p class="card-text"><strong>Precio: </strong>{{ instrument.precio | currency: 'EUR' }}</p>
             <div class="botones">
               <button class="btn btn-danger" (click)="deleteInstrumento(instrument.id)">Eliminar</button>
               <button (click)="editInstrument(instrument)" class="btn boton">Editar</button>

@@ -9,6 +9,9 @@
           <div class="text-center mt-2">
             <img [src]="pedido.producto.imagen" alt="{{pedido.producto.nombre}}" class="img-thumbnail" style="max-width: 200px;">
           </div>
+          <div class="text-center mt-2">
+            <p>{{pedido.producto.descripcion}}</p>
+          </div>
           <form #pedidoForm="ngForm" (ngSubmit)="submitPedido()">
             <div class="form-group mb-2">
               <div class="form-group mb-2">
@@ -38,6 +41,9 @@
             <br>
             <div class="alert alert-success" *ngIf="mensajeExito">
               {{ mensajeExito }}
+            </div>
+            <div class="alert alert-danger" *ngIf="mensajeError">
+              {{ mensajeError }}
             </div>
             <br>
           </form>

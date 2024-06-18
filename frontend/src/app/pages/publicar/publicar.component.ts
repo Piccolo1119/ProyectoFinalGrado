@@ -22,6 +22,7 @@ export class PublicarComponent {
   imagen: Blob | undefined;
   imagenPreview: string | undefined;
   mensajeExito: string | undefined;
+  mensajeError: string | undefined;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -62,7 +63,7 @@ export class PublicarComponent {
         }
       }, error => {
         console.error('Ha ocurrido un error en la solicitud HTTP:', error);
-        alert('Debe rellenar todos los campos');
+        this.mensajeError = 'Error al publicar el instrumento. Rellena correctamente los campos';
       });
   }
 

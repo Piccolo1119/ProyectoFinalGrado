@@ -36,14 +36,16 @@ export class HeaderComponent implements OnInit {
   filtrarInstrumentos() {
     console.log('Término de búsqueda:', this.terminoBusqueda); // Depuración
     if (this.terminoBusqueda) {
-      this.resultados = this.todosInstrumentos.filter(instrumento => 
-        instrumento.nombre && instrumento.nombre.toLowerCase().includes(this.terminoBusqueda.toLowerCase())
-      );
-      console.log('Resultados filtrados:', this.resultados); // Depuración
+        const terminoBusquedaLower = this.terminoBusqueda.toLowerCase();
+        this.resultados = this.todosInstrumentos.filter(instrumento => 
+            (instrumento.nombre && instrumento.nombre.toLowerCase().includes(terminoBusquedaLower)) ||
+            (instrumento.marca && instrumento.marca.toLowerCase().includes(terminoBusquedaLower))
+        );
+        console.log('Resultados filtrados:', this.resultados); // Depuración
     } else {
-      this.resultados = [];
+        this.resultados = [];
     }
-  }
+}
 
   buscar() {
     // Implementa la lógica de búsqueda si es necesario

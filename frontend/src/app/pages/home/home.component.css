@@ -1,11 +1,12 @@
 .carrusel {
   max-width: 100%; /* Ensure the carousel width is responsive */
   margin: 0 auto; /* Center the carousel */
+
 }
 
 .carrusel .carousel-inner img {
   height: 500px; /* Adjust the height as needed */
-  /* object-fit: cover; */ /* Ensure the images cover the area */
+  /* object-fit: cover; */ /* Ensure the images cover the area */  
 }
 
 .custom-caption {
@@ -14,8 +15,8 @@
   right: 15%;
   left: auto;
   transform: translateY(-50%);
-  width: 350px;
-  height: 150px;
+  width: 400px;
+  height: 200px;
   text-align: center;
   color: rgba(187, 13, 187, 0.911);
   border-radius: 10px;
