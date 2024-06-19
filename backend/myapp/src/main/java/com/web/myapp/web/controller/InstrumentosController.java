@@ -145,11 +145,7 @@ public class InstrumentosController {
         try {
             String username = jwtService.getUsernameFromToken(token.substring(7));
             UsuariosDto usuariosDto = usuariosService.getUsuariosByUsername(username);
-            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            System.out.println(username);
             List<Instrumentos> instrumentos = instrumentosService.getInstrumentosByTipoInstrumentoAndVendedorId(Long.parseLong(tipoInstrumentoId), usuariosDto.getId());
-            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            System.out.println(instrumentos);
             if (instrumentos.isEmpty()) {
                 return ResponseEntity.noContent().build();
             }

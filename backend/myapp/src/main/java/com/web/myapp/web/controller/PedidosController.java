@@ -71,11 +71,15 @@ public class PedidosController {
         UsuariosDto usuariosDto = usuariosService.getUsuariosByUsername(username);
         pedidos.setComprador(usuariosDto.getId());
         try {
-            return ResponseEntity.ok(pedidosService.addPedidos(pedidos));
+            Pedidos nuevoPedido = pedidosService.addPedidos(pedidos);
+            if (nuevoPedido != null) {
+                return ResponseEntity.ok(nuevoPedido);
+            } else {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            }
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-
-
+    
 }

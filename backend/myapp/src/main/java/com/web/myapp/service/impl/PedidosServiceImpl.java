@@ -27,9 +27,13 @@ public class PedidosServiceImpl implements PedidosService {
 
     @Override
     public Pedidos addPedidos(Pedidos pedidos) {
-        instrumentosService.actualizarEstadoActivo(pedidos.getInstrumento().getId(), false);
-        return pedidosRepository.save(pedidos);
+        Pedidos savedPedido = pedidosRepository.save(pedidos);
+        if (savedPedido != null) {
+            instrumentosService.actualizarEstadoActivo(pedidos.getInstrumento().getId(), false);
+        }
+        return savedPedido;
     }
+
 
     @Override
     public List<Pedidos> getPedidosByComprador(Long userId) {
