@@ -1,0 +1,213 @@
+.carrusel {
+  max-width: 100%; /* Ensure the carousel width is responsive */
+  margin: 0 auto; /* Center the carousel */
+
+}
+
+.carrusel .carousel-inner img {
+  height: 500px; /* Adjust the height as needed */
+  /* object-fit: cover; */ /* Ensure the images cover the area */  
+}
+
+.custom-caption {
+  position: absolute;
+  top: 40%;
+  right: 15%;
+  left: auto;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 200px;
+  text-align: center;
+  color: rgba(187, 13, 187, 0.911);
+  border-radius: 10px;
+  padding: 20px;
+  display: grid;
+  place-content: center;
+  background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.22),
+    1px 0px 0px 0px rgba(0, 0, 0, 0.22), 1px 2px 0px 0px rgba(0, 0, 0, 0.22),
+    2px 1px 0px 0px rgba(0, 0, 0, 0.22), 2px 3px 0px 0px rgba(0, 0, 0, 0.22),
+    3px 2px 0px 0px rgba(0, 0, 0, 0.22), 3px 4px 0px 0px rgba(0, 0, 0, 0.22),
+    4px 3px 0px 0px rgba(0, 0, 0, 0.22), 4px 5px 0px 0px rgba(0, 0, 0, 0.22),
+    5px 4px 0px 0px rgba(0, 0, 0, 0.22), 5px 6px 0px 0px rgba(0, 0, 0, 0.22),
+    6px 5px 0px 0px rgba(0, 0, 0, 0.22), 6px 7px 0px 0px rgba(0, 0, 0, 0.22),
+    7px 6px 0px 0px rgba(0, 0, 0, 0.22), 7px 8px 0px 0px rgba(0, 0, 0, 0.22),
+    8px 7px 0px 0px rgba(0, 0, 0, 0.22);
+}
+
+.custom-caption-left {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  right: auto;
+  transform: translateY(-50%);
+  width: 350px;
+  height: 150px;
+  text-align: center;
+  color: rgba(187, 13, 187, 0.911);
+  border-radius: 10px;
+  padding: 30px;
+  display: grid;
+  place-content: center;
+  background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.22),
+    1px 0px 0px 0px rgba(0, 0, 0, 0.22), 1px 2px 0px 0px rgba(0, 0, 0, 0.22),
+    2px 1px 0px 0px rgba(0, 0, 0, 0.22), 2px 3px 0px 0px rgba(0, 0, 0, 0.22),
+    3px 2px 0px 0px rgba(0, 0, 0, 0.22), 3px 4px 0px 0px rgba(0, 0, 0, 0.22),
+    4px 3px 0px 0px rgba(0, 0, 0, 0.22), 4px 5px 0px 0px rgba(0, 0, 0, 0.22),
+    5px 4px 0px 0px rgba(0, 0, 0, 0.22), 5px 6px 0px 0px rgba(0, 0, 0, 0.22),
+    6px 5px 0px 0px rgba(0, 0, 0, 0.22), 6px 7px 0px 0px rgba(0, 0, 0, 0.22),
+    7px 6px 0px 0px rgba(0, 0, 0, 0.22), 7px 8px 0px 0px rgba(0, 0, 0, 0.22),
+    8px 7px 0px 0px rgba(0, 0, 0, 0.22);
+}
+
+.custom-caption-top {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  right: auto;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 100px;
+  text-align: center;
+  color: rgba(187, 13, 187, 0.911);
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 30px;
+  display: grid;
+  place-content: center;
+  background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.22),
+    1px 0px 0px 0px rgba(0, 0, 0, 0.22), 1px 2px 0px 0px rgba(0, 0, 0, 0.22),
+    2px 1px 0px 0px rgba(0, 0, 0, 0.22), 2px 3px 0px 0px rgba(0, 0, 0, 0.22),
+    3px 2px 0px 0px rgba(0, 0, 0, 0.22), 3px 4px 0px 0px rgba(0, 0, 0, 0.22),
+    4px 3px 0px 0px rgba(0, 0, 0, 0.22), 4px 5px 0px 0px rgba(0, 0, 0, 0.22),
+    5px 4px 0px 0px rgba(0, 0, 0, 0.22), 5px 6px 0px 0px rgba(0, 0, 0, 0.22),
+    6px 5px 0px 0px rgba(0, 0, 0, 0.22), 6px 7px 0px 0px rgba(0, 0, 0, 0.22),
+    7px 6px 0px 0px rgba(0, 0, 0, 0.22), 7px 8px 0px 0px rgba(0, 0, 0, 0.22),
+    8px 7px 0px 0px rgba(0, 0, 0, 0.22);
+}
+
+/* .carousel-item:nth-of-type(3) img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 100%;
+} */
+
+
+.custom-caption h5,
+.custom-caption-left h5,
+.custom-caption-top h5 {
+  font-size: 2rem; /* Ajusta este valor aquí sea necesario */
+  font-weight: bold; /* Puedes ajustar el grosor del texto */
+  margin: 0; /* Eliminar márgenes adicionales */
+}
+
+.custom-caption p,
+.custom-caption-left p,
+.custom-caption-top p {
+  font-size: 1.2rem; /* Ajusta este valor aquí sea necesario */
+  margin: 0; /* Eliminar márgenes adicionales */
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .carrusel .carousel-inner img {
+    height: 300px; /* Smaller height for small devices */
+  }
+
+  .custom-caption,
+  .custom-caption-left,
+  .custom-caption-top {
+    text-align: center; /* Center text for small devices */
+    top: 50%; /* Adjust vertical position for small devices */
+    width: 90%; /* Reduce width for small devices */
+    right: 5%;
+    left: 5%;
+  }
+
+  .custom-caption h5,
+  .custom-caption-left h5,
+  .custom-caption-top h5 {
+    font-size: 1.5rem; /* Smaller font size for small devices */
+    
+  }
+
+  .custom-caption p,
+  .custom-caption-left p,
+  .custom-caption-top p {
+    font-size: 1rem; /* Smaller font size for small devices */
+  }
+}
+
+@media (max-width: 575.98px) {
+  .custom-caption,
+  .custom-caption-left,
+  .custom-caption-top {
+    text-align: center; /* Center text for extra small devices */
+    top: 50%; /* Adjust vertical position for extra small devices */
+    width: 90%; /* Reduce width for extra small devices */
+    right: 5%;
+    left: 5%;
+  }
+
+  .custom-caption h5,
+  .custom-caption-left h5,
+  .custom-caption-top h5 {
+    font-size: 1.2rem; /* Smaller font size for extra small devices */
+  }
+
+  .custom-caption p,
+  .custom-caption-left p,
+  .custom-caption-top p {
+    font-size: 0.9rem; /* Smaller font size for extra small devices */
+  }
+}
+
+.boton{
+  background-color: purple;
+  color: white;
+  border-color: purple;
+}
+
+.boton:hover {
+  background-color: rgb(164, 1, 164);
+}
+
+.image {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 250px;
+  border-radius: 10px 10px 0 0;
+}
+
+
+.headerp {
+  background-color: white;
+  border-bottom: purple;
+}
+
+.borde {
+  border-radius: 10px;
+}
+
+.carta {
+  box-shadow: 0 0 3px purple;
+  transition: 0.3s;
+}
+
+.carta:hover {
+  box-shadow: 0 0 15px rgb(164, 1, 164);
+}
+
+
+
+/* .carruImg {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 250px;
+ 
+} */

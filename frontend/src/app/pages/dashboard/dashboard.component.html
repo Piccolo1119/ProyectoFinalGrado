@@ -1,0 +1,82 @@
+<app-nav></app-nav>
+<p *ngIf="!userLoginOn" class="alert alert-danger">Usuario NO autenticado</p>
+<p *ngIf="userLoginOn" class="alert alert-success">Usuario Autenticado</p>
+
+<div class="card">
+  <div class="card-header">
+    Datos Personales
+  </div>
+  <div class="card-body m-0">
+    <app-personal-details></app-personal-details>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Tus instrumentos
+  </div>
+  <div *ngIf="deleteSuccessMessage" class="alert alert-success">{{ deleteSuccessMessage }}</div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <div class="col" *ngFor="let instrument of instrumentos">
+      <div class="card h-100 w-100 mb-3 carta">
+        <div class="card-header headerp">
+          <img [src]="instrument.imagen" class="card-img-top image" alt="Instrumento imagen">
+        </div>
+        <div class="card-body">
+          <form *ngIf="editMode && instrument === instrumentToEdit" [formGroup]="editForm" (ngSubmit)="saveInstrument()">
+            <div class="form-group">
+              <label for="inputNombre">Nombre</label>
+              <input type="text" formControlName="nombre" class="form-control" id="inputNombre">
+            </div>
+            <div class="form-group">
+              <label for="inputDescripcion">Descripción</label>
+              <input type="text" formControlName="descripcion" class="form-control" id="inputDescripcion">
+            </div>
+            <div class="form-group">
+              <label for="inputMarca">Marca</label>
+              <input type="text" formControlName="marca" class="form-control" id="inputMarca">
+            </div>
+            <div class="form-group">
+              <label for="inputPrecio">Precio</label>
+              <input type="number" formControlName="precio" class="form-control" id="inputPrecio">
+            </div>
+            <div class="botones">
+              <button type="submit" class="btn btn-success">Guardar</button>
+              <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancelar</button>
+            </div>
+          </form>
+
+          <div *ngIf="!editMode || instrument !== instrumentToEdit">
+            <h5 class="card-title">{{ instrument.nombre }}</h5>
+            <p class="card-text">{{ instrument.descripcion }}</p>
+            <p class="card-text"><small class="text-muted">Marca: {{ instrument.marca }}</small></p>
+            <p class="card-text"><strong>Precio: </strong>{{ instrument.precio | currency: 'EUR' }}</p>
+            <div class="botones">
+              <button class="btn btn-danger" (click)="deleteInstrumento(instrument.id)">Eliminar</button>
+              <button (click)="editInstrument(instrument)" class="btn boton">Editar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Tus pedidos
+  </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let pedido of pedidos">
+        <!-- Aquí puedes mostrar los detalles del pedido -->
+        <p>Pedido ID: {{ pedido.codigo }}</p>
+        <p>Fecha: {{ pedido.fecha }}</p>
+        <p>Estado de pago: {{ pedido.estadoPago }}</p>
+        <!-- Otros detalles del pedido según la estructura de tu modelo -->
+      </li>
+      <p [hidden]="pedidos && pedidos.length > 0" class="alert alert-info">No hay pedidos disponibles.</p>
+    </ul>
+  </div>
+</div>
+

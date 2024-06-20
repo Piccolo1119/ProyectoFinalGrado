@@ -1,0 +1,35 @@
+body  {
+  margin: 0;
+  height: 100vh;
+}
+
+:host {
+  margin: 0;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+  grid-template-columns: 1fr;
+  font-family: ubuntu;
+}
+  
+/* Estilos para el contenido */
+.content {
+  display: grid;
+  grid-area: content;
+  min-height: 100vh;
+}
+/* Media query en CSS */
+@media (max-width: 768px) {
+  :host {
+    grid-template-columns: 1fr; /* Cambia a una sola columna */
+    grid-template-rows: auto auto 1fr auto; 
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "content"
+      "footer";
+  }
+}
+

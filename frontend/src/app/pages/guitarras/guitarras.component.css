@@ -1,0 +1,36 @@
+.boton{
+    background-color: purple;
+    color: white;
+    border-color: purple;
+  }
+
+  .boton:hover {
+    background-color: rgb(164, 1, 164);
+}
+
+  .image {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 250px;
+    border-radius: 10px 10px 0 0;
+}
+
+
+.headerp {
+    background-color: white;
+    border-bottom: purple;
+}
+
+.container {
+  padding: 50px;
+}
+
+.carta {
+  box-shadow: 0 0 3px purple;
+  transition: 0.3s;
+}
+
+.carta:hover {
+  box-shadow: 0 0 15px rgb(164, 1, 164);
+}

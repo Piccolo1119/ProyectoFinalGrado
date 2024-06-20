@@ -1,0 +1,10 @@
+.boton{
+    background-color: purple;
+    color: white;
+    border-color: purple;
+}
+
+.boton:hover {
+    background-color: rgb(164, 1, 164);
+}
+
